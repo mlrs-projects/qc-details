@@ -2888,8 +2888,8 @@ if not st.session_state.get('login'):
                 usernames = st.secrets["usernames"]
                 user1_name = usernames["user1"]["name"]
                 user1_password = usernames["user1"]["password"]
-                user2_name = usernames["user1"]["name"]
-                user2_password = usernames["user1"]["password"]
+                user2_name = usernames["user2"]["name"]
+                user2_password = usernames["user2"]["password"]
 
 
                 if (username == user1_name) and (password == user1_password):
