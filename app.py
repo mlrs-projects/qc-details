@@ -162,6 +162,14 @@ class Microbiology:
         </style>
         """
         st.markdown(page_bg_color, unsafe_allow_html=True)
+        st.markdown( """
+                    <style>
+                    .stActionButton[data-testid="stActionButton"] {
+                        display: none;
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True )
 
         self.option  = option_menu(menu_title="",options=["Pending Approval","Make Approval","Report Generation"],orientation="horizontal")
 
@@ -1460,6 +1468,16 @@ class MLRS:
         </style>
         """
         st.markdown(page_bg_color, unsafe_allow_html=True)
+
+        st.markdown( """
+                    <style>
+                    .stActionButton[data-testid="stActionButton"] {
+                        display: none;
+                    }
+                    </style>
+                    """,
+                    unsafe_allow_html=True )
+        
 
         ist = pytz.timezone('Asia/Kolkata')
         now_utc = datetime.now(pytz.utc)
@@ -2860,6 +2878,15 @@ if not st.session_state.get('login'):
         </style>
         """
     st.markdown(page_bg_color, unsafe_allow_html=True)
+
+    st.markdown( """
+                <style>
+                .stActionButton[data-testid="stActionButton"] {
+                    display: none;
+                }
+                </style>
+                """,
+                unsafe_allow_html=True )
 
     with col2:
         space(7)
