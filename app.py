@@ -62,34 +62,24 @@ class Microbiology:
         
     def db_connect(self,engine = False):
 
+        
         # with open('config.yaml', 'r') as file:
         #     config = yaml.safe_load(file)
-        # db_config = config['Database']
+        db_config = st.secrets["Database"]
 
 
-        # db_user = db_config['db_user']
-        # db_password = db_config['db_password']
-        # db_host = db_config['db_host']
-        # db_port = db_config['db_port']
-        # db_name = db_config['db_name']
+        db_user = db_config['db_user']
+        db_password = db_config['db_password']
+        db_host = db_config['db_host']
+        db_port = db_config['db_port']
+        db_name = db_config['db_name']
 
-        # connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
-        db_user = 'postgres'
-        db_password = 1234
-        db_host = 'localhost'
-        db_port = 5432
-        db_name = 'qcreport'
         connection_string = f'postgresql+psycopg2://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
-        # engine = create_engine(connection_string)
-
 
         if engine == True:
             conn = create_engine(connection_string)
         else:   
-            conn = psycopg2.connect(host=db_host, database=db_name, user=db_user, password=1234)
-
-
-            # conn = psycopg2.connect(db_config['conn'])
+            conn = psycopg2.connect(db_config['conn'])
 
         return conn
 
@@ -1376,12 +1366,11 @@ class MLRS:
 
     def db_connect(self):
         try:
-            conn = psycopg2.connect(host="localhost", database="qcreport", user="postgres", password=1234)
 
             # with open('config.yaml', 'r') as file:
             #     config = yaml.safe_load(file)
-            # db_config = config['Database']
-            # conn = psycopg2.connect(db_config['conn'])
+            db_config = st.secrets['Database']
+            conn = psycopg2.connect(db_config['conn'])
 
             return conn
         
@@ -2895,12 +2884,19 @@ if not st.session_state.get('login'):
             submit = st.form_submit_button(":skyblue[Submit]")
 
             if submit:
-                if (username == config["credentials"]['usernames']['user1']['name']) and (password == config["credentials"]['usernames']['user1']['password']):
+                usernames = st.secrets["usernames"]
+                user1_name = usernames["user1"]["name"]
+                user1_password = usernames["user1"]["password"]
+                user2_name = usernames["user1"]["name"]
+                user2_password = usernames["user1"]["password"]
+
+
+                if (username == user1_name) and (password == user1_password):
                     st.session_state.login = "mlrs"
                     st.success("Login Sucessfull")
                     st.rerun()
 
-                elif (username == config["credentials"]['usernames']['user2']['name']) and (password == config["credentials"]['usernames']['user2']['password']):
+                elif (username == user2_name) and (password == user2_password):
                     st.session_state.login = "microlab"
                     st.success("Login Sucessfull")
                     st.rerun()
