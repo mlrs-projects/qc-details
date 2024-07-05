@@ -684,6 +684,9 @@ class Microbiology:
             if "permission_granted_for_madmin" not in st.session_state:
                 st.session_state.permission_granted_for_madmin = False
 
+            if "report_incharge" not in st.session_state:
+                st.session_state.report_incharge = ""
+
             if not st.session_state.permission_granted_for_madmin:
                 admin_login_form()
             else:
