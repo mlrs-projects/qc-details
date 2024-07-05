@@ -659,10 +659,11 @@ class Microbiology:
                     validate_admin_login(ad_username, ad_password)
 
         def validate_admin_login(username, password):
-            m1_admin_username = config["credentials"]["usernames"]["user4"]["name"]
-            m1_admin_password = config["credentials"]["usernames"]["user4"]["password"]
-            m2_admin_username = config["credentials"]["usernames"]["user5"]["name"]
-            m2_admin_password = config["credentials"]["usernames"]["user5"]["password"]
+            usernames = st.secrets["usernames"]
+            m1_admin_username = usernames["user4"]["name"]
+            m1_admin_password = usernames["user4"]["password"]
+            m2_admin_username = usernames["user5"]["name"]
+            m2_admin_password = usernames["user5"]["password"]
 
             if username == m1_admin_username and password == m1_admin_password:
                 st.session_state.permission_granted_for_madmin = True
@@ -2360,9 +2361,9 @@ class MLRS:
                     st.warning(f"Refresh The Page")   
 
         if self.option == "MLRS Admin":
-
-            admin_username = config["credentials"]["usernames"]["user3"]["name"]
-            admin_password = config["credentials"]["usernames"]["user3"]["password"]
+            usernames = st.secrets["usernames"]
+            admin_username = usernames["user3"]["name"]
+            admin_password = usernames["user3"]["password"]
 
             if "permission_granted_for_admin" not in st.session_state:
                 st.session_state.permission_granted_for_admin = False
