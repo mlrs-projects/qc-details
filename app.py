@@ -2828,8 +2828,8 @@ class MLRS:
                     st.session_state.permission_granted_for_admin = False
                     st.rerun()
 
-with open('config.yaml', 'r') as file:
-    config = yaml.safe_load(file)
+# with open('config.yaml', 'r') as file:
+#     config = yaml.safe_load(file)
 
 if not st.session_state.get('login'):
     
