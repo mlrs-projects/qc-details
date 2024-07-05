@@ -667,12 +667,12 @@ class Microbiology:
 
             if username == m1_admin_username and password == m1_admin_password:
                 st.session_state.permission_granted_for_madmin = True
-                st.session_state.report_incharge = config["credentials"]["usernames"]["user4"]["incharge"]
+                st.session_state.report_incharge = usernames["user4"]["incharge"]
                 st.success("Login Successful")
                 st.rerun()
             elif username == m2_admin_username and password == m2_admin_password:
                 st.session_state.permission_granted_for_madmin = True
-                st.session_state.report_incharge = config["credentials"]["usernames"]["user5"]["incharge"]
+                st.session_state.report_incharge = usernames["user5"]["incharge"]
                 st.success("Login Successful")
                 st.rerun()
             elif username == "" or password == "":
