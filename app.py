@@ -2361,7 +2361,7 @@ class MLRS:
                 try:
                     download_report()
                 except Exception as e:
-                    st.warning(f"Refresh The Page")   
+                    st.warning(f"Refresh The Page  {e}")   
 
         if self.option == "MLRS Admin":
             usernames = st.secrets["usernames"]
