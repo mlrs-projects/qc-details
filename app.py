@@ -2216,9 +2216,9 @@ class MLRS:
 
                     arial_normal = styles['Normal']
                     pchp = Paragraph("Physical Characteristics:", arial_heading4)
-                    sterp = Paragraph(f"Sterility {temp}:", arial_body_text)
+                    sterp = Paragraph(f"Sterility {temp}:", arial_normal)
                     cchp = Paragraph("Culture Characteristics: ", arial_heading4)
-                    c_con = Paragraph(f"<b>Culture Conditions</b> - {culture_condition}", arial_body_text)
+                    c_con = Paragraph(f"<b>Culture Conditions</b> - {culture_condition}", arial_normal)
                     i_use = Paragraph(f"<b>Intended Use</b> - {intended_use}", arial_normal)
 
                     # Load and configure the logo image
