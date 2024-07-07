@@ -159,6 +159,11 @@ class Microbiology:
         .st-emotion-cache-16txtl3{
             padding: 1.7rem 1.5rem;
         }
+        /* Hide the viewer badge */
+        .viewerBadge_container__r5tak {
+            display: none !important;
+        }
+        
         </style>
         """
         st.markdown(page_bg_color, unsafe_allow_html=True)
@@ -1465,9 +1470,16 @@ class MLRS:
         .st-emotion-cache-16txtl3{
             padding: 1.7rem 1.5rem;
         }
+        /* Hide the viewer badge */
+        .viewerBadge_container__r5tak {
+            display: none !important;
+        }
+        
         </style>
         """
         st.markdown(page_bg_color, unsafe_allow_html=True)
+    
+        
 
         st.markdown( """
                     <style>
@@ -2891,6 +2903,25 @@ if not st.session_state.get('login'):
     with col2:
         space(7)
         with st.form("Login"):
+            
+            hide_elements_css = """
+            <style>
+            /* Hide the fullscreen button */
+            .st-emotion-cache-1dgsbsu[title="Exit fullscreen"] {
+                display: none !important;
+            }
+            
+            /* Hide the viewer badge */
+            .viewerBadge_container__r5tak {
+                display: none !important;
+            }
+            </style>
+            """
+            
+            # Apply the custom CSS
+            st.markdown(hide_elements_css, unsafe_allow_html=True)
+
+        
             st.markdown(
                 """
                 <div align='center'>
