@@ -2214,7 +2214,7 @@ class MLRS:
                     for cod, condition,use in zip(codes, culture_condition,intended_use):
                         if int(lot_number[:3]) == int(cod):
                             culture_condition =  condition
-                            culture_condition = condition.replace("°", "&#176;")
+                            culture_condition = condition.replace("°", "\u00B0")
 
                             intended_use = use
                             break
