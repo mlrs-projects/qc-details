@@ -1186,6 +1186,7 @@ class Microbiology:
                         arial_heading1 = ParagraphStyle(name='ArialHeading1', parent=styles['Heading1'], fontName='Arial-Bold', alignment=1)
                         arial_heading4 = ParagraphStyle(name='ArialHeading4', parent=styles['Heading3'], fontName='Arial-Bold', fontsize=24, alignment=0, spaceBefore=6, spaceAfter=3)
                         arial_body_text = ParagraphStyle(name='ArialBodyText', parent=styles['BodyText'], fontName='Arial')
+                        arial_normal = ParagraphStyle(name='arial_normal', parent=styles['Normal'], fontName='Arial')
 
                         heading_paragraph = Paragraph("Quality Check Report", arial_heading1)
                         spacer = Spacer(1, 3, isGlue=True)
@@ -2216,7 +2217,9 @@ class MLRS:
 
                     arial_normal = styles['Normal']
                     pchp = Paragraph("Physical Characteristics:", arial_heading4)
+                    
                     sterp = Paragraph(f"Sterility {temp}:", arial_normal)
+                    
                     cchp = Paragraph("Culture Characteristics: ", arial_heading4)
                     c_con = Paragraph(f"<b>Culture Conditions</b> - {culture_condition}", arial_normal)
                     i_use = Paragraph(f"<b>Intended Use</b> - {intended_use}", arial_normal)
@@ -2391,7 +2394,7 @@ class MLRS:
                 try:
                     download_report()
                 except Exception as e:
-                    st.warning(f"Refresh The Page  {e}")   
+                    st.warning(f"Refresh The Page ")   
 
         if self.option == "MLRS Admin":
             usernames = st.secrets["usernames"]
