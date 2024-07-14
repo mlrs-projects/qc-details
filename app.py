@@ -2202,7 +2202,9 @@ class MLRS:
                     # Determine sterility condition
                     h48 = [113, 121, 122]
                     code_to_check = int(lot_number[:3])
-                    temp = "@ 37⁰C ± 2⁰C for 48 h" if code_to_check in h48 else "@ 37⁰C ± 2⁰C for 24 h"
+                    # temp = "@ 37⁰C ± 2⁰C for 48 h" if code_to_check in h48 else "@ 37⁰C ± 2⁰C for 24 h"
+                    temp = f"@ 37\u00B0C ± 2\u00B0C for 48 h" if code_to_check in h48 else f"@ 37\u00B0C ± 2\u00B0C for 24 h"
+
 
                     culture_condition = product_details["Culture conditions"].to_list()
                     codes = product_details["Code"].to_list()
