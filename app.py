@@ -2214,8 +2214,10 @@ class MLRS:
                     for cod, condition,use in zip(codes, culture_condition,intended_use):
                         if int(lot_number[:3]) == int(cod):
                             culture_condition =  condition
-                            culture_condition = condition.replace("°", "\u00B0")
-
+                    # Insert degree symbol before "C  "
+                            index_c = condition.find("C  ")
+                            if index_c != -1:
+                                condition = condition[:index_c] + "\u2103" + condition[index_c:]
                             intended_use = use
                             break
 
